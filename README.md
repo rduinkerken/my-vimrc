@@ -12,9 +12,8 @@ I have some more requirements for my vimrc:
 - [ ] Code suggestions / autocompletion
 - [ ] Look into adding plugins
 - [ ] Automatic linting on save
-- [ ] Add keymap for split screen
-- [ ] Add tabs
-- [ ] Add keymap to switch between tabs. <A-1> for example
+- [x] Add keymap for split screen
+- [x] Add tabs
 - [ ] Be able to set background image.
 - [ ] Add code snippets (! for HTML template for example)
 - [ ] Auto close tags (function, html div's et cetera)
