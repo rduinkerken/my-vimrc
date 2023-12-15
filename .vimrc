@@ -1,7 +1,7 @@
 " ==================== START GENERAL CONFIGURATION ==================== "
 
-set no backup
-set no swapfile
+" Enable syntax highlighting
+syntax enable
 
 " Enable relative line numbers
 set relativenumber
@@ -51,7 +51,6 @@ nnoremap <leader>e :tabnew \| Explore<CR>
 
 " Enable comment or uncomment selected lines in visual mode
 vnoremap <Leader>c :s/^/#/<CR>:s/^##//<CR>:nohlsearch<CR>
-syntax highlighting
 syntax enable
 
 " Let 'y' yank copy to clipboard using PowerShell (Windows)
@@ -66,42 +65,46 @@ nnoremap <leader>t :tabnew<CR>
 " Open split screen
 nnoremap <leader>s :vsp<CR>
 
+" Auto-indent entire file
+nnoremap <C-o> :normal gg=G<CR>
+
 " ==================== END KEYMAPPING ==================== "
 
 " ==================== START UI STYLING ==================== " 
+
+" Add colorscheme
+color dracula
+
 " Show tabs in the tabline
 set showtabline=2
 
 " Display a vertical line at the textwidth column
 set colorcolumn=+1
-highlight ColorColumn ctermbg=Grey guibg=Grey
+"highlight ColorColumn ctermbg=Grey guibg=Grey
 
-" Change background color of the editor
-highlight Normal ctermbg=black guibg=black 
-
-" Set color of comments to grey
-highlight Comment ctermfg=grey guifg=grey
-
-" Set color for Identifier's (variable names, imports, brackets)
-highlight Identifier ctermfg=yellow guifg=yellow
-
-" Set color for Speciall (import in js for example)
-highlight Special ctermfg=DarkGrey guifg=DarkGrey
-
-" Set color for constants
-highlight Constant ctermfg=DarkGreen guifg=DarkGreen
-
-" Set background color for line numbers bar
-highlight LineNr cterm=NONE ctermfg=NONE ctermbg=DarkGrey guibg=DarkGrey 
-
-" Set color for types
-highligh Type ctermfg=Cyan guifg=Cyan
-
-" Set color for cursor line number in relative line numbering
-highlight CursorLineNr ctermfg=White ctermbg=Black guifg=White guibg=Black
+" Set color of comments
+hi Comment ctermfg=red guifg=red 
 
 " Make it more visual clear what current line is
 set cursorline
 hi CursorLine cterm=NONE ctermbg=blue ctermfg=white guibg=blue guifg=white
 
 " ========== END UI STYLING ========== "
+
+" ========== START PLUGIN INSTALLATION ========== "
+
+" Vim-Plug installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+" Add automatic tab indentations while programming
+Plug 'ervandew/supertab'
+
+" Add color theme
+Plug 'dracula/vim'
+
+call plug#end()
+
+ " ========== END PLUGIN INSTALLATION ========== "
