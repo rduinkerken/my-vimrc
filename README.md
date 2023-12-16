@@ -15,11 +15,11 @@ I have some more requirements for my vimrc:
 languages. so not specifically / # or * .
 - [ ] Code suggestions / autocompletion.
 - [ ] Automatic linting on save.
-- [ ] Be able to set background image.
 - [ ] Add code snippets (! for HTML template for example).
 - [ ] Auto close tags (functions, html div's et cetera).
 - [ ] Allow shift-tab keymap to unindent current selected lines.
-- [ ] Change cursor to open box, white color and no blinking.
+- [ ] Change cursor to open box, white color and no blinking. (editor config or
+  vim config?)
 - [ ] Automatically show syntax errors / warnings (in-line).
 - [ ] Add markdown file preview.
 
